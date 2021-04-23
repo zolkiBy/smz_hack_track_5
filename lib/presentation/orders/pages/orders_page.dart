@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_app_bar.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_icon_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_segmented_control.dart';
-import 'package:flutter_app/utils/nx_colors.dart';
 
 class Styles {
   static const segmentedValue = TextStyle(
