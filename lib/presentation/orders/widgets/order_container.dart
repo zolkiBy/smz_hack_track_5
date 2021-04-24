@@ -10,7 +10,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-import 'nx_slide_action.dart';
 import 'order_detailed_bottom_sheet.dart';
 
 class OrderContainer extends StatelessWidget {
@@ -98,20 +97,14 @@ class OrderContainer extends StatelessWidget {
           width: 22,
           height: 22,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(colors: [
-                NXColors.greenGradientStart,
-                NXColors.greenGradientEnd,
-              ])),
-          child: Icon(
-            Icons.check,
-            color: NXColors.backgroundBlack,
-            size: 16,
+            shape: BoxShape.circle,
+            color: order.status.iconColor,
           ),
+          child: order.status.icon,
         ),
         const SizedBox(width: 4),
         Text(
-          'Выполнено',
+          order.status.name,
           style: TextStyle(
             fontSize: 15,
             color: Colors.white,
