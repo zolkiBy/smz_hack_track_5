@@ -47,6 +47,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
+                    style: primaryText16,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: NXColors.inputFieldFillColor,
@@ -58,7 +59,10 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: TextFormField(
+                      obscureText: true,
+                      style: primaryText16,
                       decoration: InputDecoration(
+                        suffixIcon: Icon(Icons.visibility_off_outlined),
                         filled: true,
                         fillColor: NXColors.inputFieldFillColor,
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius)),
