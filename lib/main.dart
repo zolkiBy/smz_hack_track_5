@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/presentation/tab_bar/tab_bar_page.dart';
+import 'package:flutter_app/presentation/login/login_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,9 +13,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
-        primarySwatch: Colors.green,
+        primaryColor: Colors.white,
       ),
-      home: const TabBarPage(),
+      home: LoginPage(),
     );
   }
 }
