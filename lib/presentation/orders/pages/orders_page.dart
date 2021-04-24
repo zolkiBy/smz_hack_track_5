@@ -38,7 +38,7 @@ class _OrdersPageState extends State<OrdersPage> {
           children: [
             BouncingButton(
               child: NXIconButton(
-                icon: Icons.sort,
+                svgName: 'sort',
               ),
             ),
             NXSlidingSegmentedControl(
@@ -62,8 +62,10 @@ class _OrdersPageState extends State<OrdersPage> {
                 ),
               },
             ),
-            NXIconButton(
-              icon: Icons.add,
+            BouncingButton(
+              child: NXIconButton(
+                svgName: 'plus',
+              ),
             ),
           ],
         ),

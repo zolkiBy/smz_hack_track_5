@@ -21,7 +21,8 @@ class OrdersList extends StatelessWidget {
         }
         if (state is OrdersFetched) {
           return ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16)
+                  .add(EdgeInsets.only(bottom: 96)),
               itemCount: state.orders.size,
               itemBuilder: (context, index) {
                 final order = state.orders[index];

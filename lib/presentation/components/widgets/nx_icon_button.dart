@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_svg/svg.dart';
 
 class NXIconButton extends StatelessWidget {
-  final IconData icon;
+  final String svgName;
   final VoidCallback? onTap;
 
   const NXIconButton({
     Key? key,
-    required this.icon,
+    required this.svgName,
     this.onTap,
   }) : super(key: key);
 
@@ -21,9 +22,13 @@ class NXIconButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: NXColors.darkGrey.withOpacity(0.18)),
-        child: Icon(
-          icon,
-          color: Colors.white,
+        child: Center(
+          child: SvgPicture.asset(
+            'assets/icons/$svgName.svg',
+            width: 21,
+            height: 21,
+            color: Colors.white,
+          ),
         ),
       ),
     );

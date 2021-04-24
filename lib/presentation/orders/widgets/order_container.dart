@@ -17,7 +17,7 @@ class OrderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BouncingButton(
-      scaleBound: 0.05,
+      scaleBound: 0.02,
       child: Slidable(
         actionPane: SlidableScrollActionPane(),
         actions: [
@@ -34,7 +34,6 @@ class OrderContainer extends StatelessWidget {
         secondaryActions: [
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            // padding: const EdgeInsets.symmetric(horizontal: 27),
             width: 108,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
