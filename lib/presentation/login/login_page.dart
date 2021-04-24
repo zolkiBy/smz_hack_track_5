@@ -86,6 +86,7 @@ class LoginPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 16.0),
                     child: BouncingButton(
+                      scaleBound: 0.03,
                       child: GradientedActionButton(
                           text: 'Войти',
                           onPressed: () => Navigator.of(context).push(
