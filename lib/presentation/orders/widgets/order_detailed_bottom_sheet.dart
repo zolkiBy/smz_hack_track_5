@@ -60,7 +60,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   '№${order.number} – ${order.title}',
-                  style: primaryText18,
+                  style: primaryTextSemiBold17,
                 ),
                 const SizedBox(height: 16),
                 Row(
@@ -226,10 +226,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           order.status.name,
-          style: TextStyle(
-            fontSize: 15,
-            color: Colors.white,
-          ),
+          style: primaryTextMedium12,
         )
       ],
     );
