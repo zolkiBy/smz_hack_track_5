@@ -23,4 +23,7 @@ class NXColors {
   static const orange = Color(0xffDC8E00);
   static const orangeGradientStart = Color(0xFFFFB226);
   static const orangeGradientEnd = Color(0xFFE89204);
+
+  static const greenGradientStart = Color(0xFF1FCD27);
+  static const greenGradientEnd = Color(0xFF00AD08);
 }

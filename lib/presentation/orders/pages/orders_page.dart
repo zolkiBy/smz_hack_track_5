@@ -2,9 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/application/orders/orders_bloc.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_app_bar.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_icon_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_segmented_control.dart';
+import 'package:flutter_app/presentation/orders/widgets/orders_list.dart';
+import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Styles {
   static const segmentedValue = TextStyle(
@@ -61,9 +65,7 @@ class _OrdersPageState extends State<OrdersPage> {
           ],
         ),
       ),
-      body: Center(
-        child: Text(''),
-      ),
+      body: OrdersList(),
     );
   }
 }
