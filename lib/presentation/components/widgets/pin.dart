@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/constants.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_app/utils/styles.dart';
+
+const int millisecondsDelay = 300;
 
 class Pin extends StatefulWidget {
   @override
@@ -30,6 +33,7 @@ class _PinState extends State<Pin> {
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _PinItem(
             focusNode: firstFieldFocusNode,
@@ -37,18 +41,22 @@ class _PinState extends State<Pin> {
             onChanged: (String value) {
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  secondFieldFocusNode?.requestFocus();
-                });
+                secondFieldFocusNode?.requestFocus();
               }
             }),
         _PinItem(
             focusNode: secondFieldFocusNode,
             autoFocus: false,
             onChanged: (String value) {
+              if (value.isEmpty) {
+                secondFieldFocusNode?.requestFocus();
+              }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                Future.delayed(const Duration(milliseconds: 500), () {
+                Future.delayed(
+                    const Duration(
+                      milliseconds: millisecondsDelay,
+                    ), () {
                   thirdFieldFocusNode?.requestFocus();
                 });
               }
@@ -57,22 +65,23 @@ class _PinState extends State<Pin> {
             focusNode: thirdFieldFocusNode,
             autoFocus: false,
             onChanged: (String value) {
+              if (value.isEmpty) {
+                secondFieldFocusNode?.requestFocus();
+              }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  fourthFieldFocusNode?.requestFocus();
-                });
               }
             }),
         _PinItem(
             focusNode: fourthFieldFocusNode,
             autoFocus: false,
             onChanged: (String value) {
+              if (value.isEmpty) {
+                FocusScope.of(context).requestFocus(FocusNode());
+              }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                });
+                FocusScope.of(context).requestFocus(FocusNode());
               }
             }),
       ],
@@ -95,7 +104,12 @@ class _PinItem extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final bool autoFocus;
 
-  const _PinItem({Key? key, required this.focusNode, required this.onChanged, required this.autoFocus}) : super(key: key);
+  const _PinItem(
+      {Key? key,
+      required this.focusNode,
+      required this.onChanged,
+      required this.autoFocus})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -103,10 +117,12 @@ class _PinItem extends StatelessWidget {
       height: 64.0,
       width: 64.0,
       margin: EdgeInsets.all(8.0),
-      child: TextFormField(
+      child: CupertinoTextField(
+        padding: EdgeInsets.only(top: 10),
         autofocus: autoFocus,
         focusNode: focusNode,
         onChanged: onChanged,
+        maxLength: 1,
         showCursor: false,
         enableSuggestions: false,
         enableInteractiveSelection: false,
@@ -120,11 +136,13 @@ class _PinItem extends StatelessWidget {
         obscureText: true,
         style: primaryText28,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: NXColors.inputFieldFillColor,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.pinWidgetBorderRadius)),
-        ),
+        decoration: BoxDecoration(
+            color: NXColors.inputFieldFillColor,
+            border: Border.all(
+                color: NXColors.fillDarkPrimary.withOpacity(1), width: 2),
+            borderRadius: BorderRadius.circular(
+              Constants.pinWidgetBorderRadius,
+            )),
       ),
     );
   }

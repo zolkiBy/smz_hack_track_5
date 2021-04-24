@@ -22,72 +22,77 @@ class _PinPageState extends State<PinPage> {
     return SafeArea(
       child: GradientedBackground(
         child: Scaffold(
-          body: Container(
-            padding: EdgeInsets.only(
-              top: 84.0,
-              bottom: 16.0,
-              left: 16.0,
-              right: 16.0,
+          body: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.only(
+                top: 84.0,
+                bottom: 16.0,
+                left: 16.0,
+                right: 16.0,
+              ),
+              child: Column(children: [
+                Text(
+                  'Создайте PIN код',
+                  style: primaryText28,
+                ),
+                const SizedBox(height: 37),
+                Pin(),
+                const SizedBox(height: 64),
+                Container(
+                  padding: EdgeInsets.all(16.0),
+                  margin: EdgeInsets.only(top: 32.0),
+                  decoration: BoxDecoration(
+                    color: NXColors.bgWidgets,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 0,
+                        child: SvgPicture.asset(
+                          'assets/icons/biometric.svg',
+                          width: 32.0,
+                          height: 32.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        flex: 3,
+                        child: Text(
+                          'Разрешить вход с помощью биометрии',
+                          style: secondaryText16,
+                        ),
+                      ),
+                      Expanded(
+                        child: CupertinoSwitch(
+                          activeColor: NXColors.orange,
+                          value: _biometricEnabled,
+                          onChanged: (isEnabled) {
+                            setState(() {
+                              _biometricEnabled = isEnabled;
+                            });
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: BouncingButton(
+                    scaleBound: 0.02,
+                    child: GradientedActionButton(
+                        text: 'Продолжить',
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                fullscreenDialog: true,
+                                builder: (context) => TabBarPage()))),
+                  ),
+                ),
+              ]),
             ),
-            child: Column(children: [
-              Text(
-                'Создайте PIN код',
-                style: primaryText28,
-              ),
-              Pin(),
-              Container(
-                padding: EdgeInsets.all(16.0),
-                margin: EdgeInsets.only(top: 32.0),
-                decoration: BoxDecoration(
-                  color: NXColors.bgWidgets,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 0,
-                      child: SvgPicture.asset(
-                        'assets/icons/biometric.svg',
-                        width: 32.0,
-                        height: 32.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      flex: 3,
-                      child: Text(
-                        'Разрешить вход с помощью биометрии',
-                        style: secondaryText16,
-                      ),
-                    ),
-                    Expanded(
-                      child: CupertinoSwitch(
-                        activeColor: NXColors.orange,
-                        value: _biometricEnabled,
-                        onChanged: (isEnabled) {
-                          setState(() {
-                            _biometricEnabled = isEnabled;
-                          });
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16.0),
-                child: BouncingButton(
-                  child: GradientedActionButton(
-                      text: 'Продолжить',
-                      onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              fullscreenDialog: true,
-                              builder: (context) => TabBarPage()))),
-                ),
-              ),
-            ]),
           ),
         ),
       ),
