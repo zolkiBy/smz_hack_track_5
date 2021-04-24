@@ -13,9 +13,9 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   final tabItems = [
-    Icons.book,
-    Icons.person,
-    Icons.message,
+    'assets/icons/home.svg',
+    'assets/icons/work.svg',
+    'assets/icons/settings.svg',
   ];
 
   final _currentIndex = 0;

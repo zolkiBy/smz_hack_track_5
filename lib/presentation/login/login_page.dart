@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
 import 'package:flutter_app/presentation/components/widgets/styles.dart';
+import 'package:flutter_app/presentation/tab_bar/tab_bar_page.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 
 class LoginPage extends StatelessWidget {
@@ -61,11 +62,17 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 16.0, top: 16.0),
-                  child: FilledActionButton(text: 'Забыли пароль', onPressed: () {}),
+                  child: FilledActionButton(
+                      text: 'Забыли пароль', onPressed: () {}),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 16.0),
-                  child: GradientedActionButton(text: 'Войти', onPressed: () {}),
+                  child: GradientedActionButton(
+                      text: 'Войти',
+                      onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (context) => TabBarPage()))),
                 ),
               ],
             ),

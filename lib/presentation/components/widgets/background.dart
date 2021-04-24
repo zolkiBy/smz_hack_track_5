@@ -9,7 +9,6 @@ class GradientedBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-          color: Color(0xff1B120E),
           gradient: RadialGradient(
             center: Alignment(-1, 1),
             radius: 1.3,

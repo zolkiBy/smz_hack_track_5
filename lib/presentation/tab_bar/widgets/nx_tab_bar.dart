@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_svg/svg.dart';
 
 class NXTabBar extends StatefulWidget {
-  final List<IconData> items;
+  final List<String> items;
   final int initialIndex;
   final void Function(int)? onChanged;
 
@@ -60,11 +61,15 @@ class _NXTabBarState extends State<NXTabBar> {
                     child: Container(
                       height: tabBarHeight,
                       color: Colors.transparent,
-                      child: Icon(
-                        item,
-                        color: _currentIndex == widget.items.indexOf(item)
-                            ? NXColors.orange
-                            : NXColors.systemGrey,
+                      child: Center(
+                        child: SvgPicture.asset(
+                          item,
+                          width: 44,
+                          height: 44,
+                          color: _currentIndex == widget.items.indexOf(item)
+                              ? NXColors.orange
+                              : NXColors.systemGrey,
+                        ),
                       ),
                     ),
                   ),
