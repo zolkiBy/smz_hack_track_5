@@ -5,11 +5,18 @@ import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
 import 'package:flutter_app/presentation/components/widgets/pin.dart';
 import 'package:flutter_app/presentation/tab_bar/tab_bar_page.dart';
-import 'file:///D:/Programming/Projects/Pet/smz_hack_track_5/flutter_app/lib/utils/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class PinPage extends StatelessWidget {
+class PinPage extends StatefulWidget {
+  @override
+  _PinPageState createState() => _PinPageState();
+}
+
+class _PinPageState extends State<PinPage> {
+  var _biometricEnabled = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,12 +46,15 @@ class PinPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
+                      flex: 0,
                       child: SvgPicture.asset(
-                        'assets/icons/ic_biometric.svg',
+                        'assets/icons/biometric.svg',
                         width: 32.0,
                         height: 32.0,
+                        color: Colors.white,
                       ),
                     ),
+                    const SizedBox(width: 16),
                     Expanded(
                       flex: 3,
                       child: Text(
@@ -54,8 +64,13 @@ class PinPage extends StatelessWidget {
                     ),
                     Expanded(
                       child: CupertinoSwitch(
-                        value: false,
-                        onChanged: (isEnabled) {},
+                        activeColor: NXColors.orange,
+                        value: _biometricEnabled,
+                        onChanged: (isEnabled) {
+                          setState(() {
+                            _biometricEnabled = isEnabled;
+                          });
+                        },
                       ),
                     )
                   ],
@@ -66,7 +81,10 @@ class PinPage extends StatelessWidget {
                 child: BouncingButton(
                   child: GradientedActionButton(
                       text: 'Продолжить',
-                      onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => TabBarPage()))),
+                      onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (context) => TabBarPage()))),
                 ),
               ),
             ]),
