@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/constants.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
-
-const double _btnHeight = 50;
-const double _borderRadius = 14;
 
 class GradientedActionButton extends StatelessWidget {
   final String text;
@@ -54,18 +52,19 @@ class ActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: _btnHeight,
+      height: Constants.buttonHeight,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
           padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(_borderRadius))),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius))),
         ),
         child: Ink(
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(_borderRadius),
+            borderRadius: BorderRadius.circular(Constants.widgetBorderRadius),
             gradient: gradient,
           ),
           child: Center(
