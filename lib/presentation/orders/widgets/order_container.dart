@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
+import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 
@@ -13,28 +14,31 @@ class OrderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      decoration: BoxDecoration(
-        color: NXColors.darkGrey.withOpacity(0.18),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        children: [
-          Text(
-            '№${order.number} – ${order.title}',
-            style: primaryText18,
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildStatus(),
-              _buildPrice(price: order.price),
-            ],
-          ),
-        ],
+    return BouncingButton(
+      scaleBound: 0.01,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(vertical: 4),
+        decoration: BoxDecoration(
+          color: NXColors.darkGrey.withOpacity(0.18),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          children: [
+            Text(
+              '№${order.number} – ${order.title}',
+              style: primaryText18,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildStatus(),
+                _buildPrice(price: order.price),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/application/orders/orders_bloc.dart';
+import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_app_bar.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_icon_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_segmented_control.dart';
@@ -35,8 +36,10 @@ class _OrdersPageState extends State<OrdersPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            NXIconButton(
-              icon: Icons.sort,
+            BouncingButton(
+              child: NXIconButton(
+                icon: Icons.sort,
+              ),
             ),
             NXSlidingSegmentedControl(
               groupValue: _currentSegmentedIndex,
