@@ -7,6 +7,12 @@ import 'package:flutter_app/utils/styles.dart';
 const int millisecondsDelay = 300;
 
 class Pin extends StatefulWidget {
+  final void Function(String)? onChanged;
+
+  Pin({
+    this.onChanged,
+  });
+
   @override
   _PinState createState() => _PinState();
 }
@@ -39,9 +45,19 @@ class _PinState extends State<Pin> {
             focusNode: firstFieldFocusNode,
             autoFocus: true,
             onChanged: (String value) {
+              if (value.isEmpty) {
+                pin = '';
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
+              }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                secondFieldFocusNode?.requestFocus();
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
+                Future.delayed(Duration(milliseconds: millisecondsDelay))
+                    .then((value) => secondFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -49,16 +65,19 @@ class _PinState extends State<Pin> {
             autoFocus: false,
             onChanged: (String value) {
               if (value.isEmpty) {
-                secondFieldFocusNode?.requestFocus();
+                pin = pin.substring(0);
+                firstFieldFocusNode?.requestFocus();
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
               }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                Future.delayed(
-                    const Duration(
-                      milliseconds: millisecondsDelay,
-                    ), () {
-                  thirdFieldFocusNode?.requestFocus();
-                });
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
+                Future.delayed(Duration(milliseconds: millisecondsDelay))
+                    .then((value) => thirdFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -66,10 +85,19 @@ class _PinState extends State<Pin> {
             autoFocus: false,
             onChanged: (String value) {
               if (value.isEmpty) {
+                pin = pin.substring(0, 1);
                 secondFieldFocusNode?.requestFocus();
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
               }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
+                Future.delayed(Duration(milliseconds: millisecondsDelay))
+                    .then((value) => fourthFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -77,11 +105,20 @@ class _PinState extends State<Pin> {
             autoFocus: false,
             onChanged: (String value) {
               if (value.isEmpty) {
-                FocusScope.of(context).requestFocus(FocusNode());
+                pin = pin.substring(0, 2);
+                thirdFieldFocusNode?.requestFocus();
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
               }
               if (value.isNotEmpty && value.length == 1) {
                 pin = pin + value;
-                FocusScope.of(context).requestFocus(FocusNode());
+                if (widget.onChanged != null) {
+                  widget.onChanged!(pin);
+                }
+                Future.delayed(Duration(milliseconds: millisecondsDelay)).then(
+                    (value) =>
+                        FocusScope.of(context).requestFocus(FocusNode()));
               }
             }),
       ],
@@ -104,12 +141,12 @@ class _PinItem extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final bool autoFocus;
 
-  const _PinItem(
-      {Key? key,
-      required this.focusNode,
-      required this.onChanged,
-      required this.autoFocus})
-      : super(key: key);
+  const _PinItem({
+    Key? key,
+    required this.focusNode,
+    required this.onChanged,
+    required this.autoFocus,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

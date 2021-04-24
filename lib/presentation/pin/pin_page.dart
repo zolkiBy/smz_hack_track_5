@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
@@ -16,6 +17,9 @@ class PinPage extends StatefulWidget {
 
 class _PinPageState extends State<PinPage> {
   var _biometricEnabled = false;
+  var _pin = '';
+
+  final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +27,7 @@ class _PinPageState extends State<PinPage> {
       child: GradientedBackground(
         child: Scaffold(
           body: SingleChildScrollView(
+            controller: _scrollController,
             child: Container(
               padding: EdgeInsets.only(
                 top: 84.0,
@@ -36,7 +41,21 @@ class _PinPageState extends State<PinPage> {
                   style: primaryText28,
                 ),
                 const SizedBox(height: 37),
-                Pin(),
+                Pin(
+                  onChanged: (pin) {
+                    if (_scrollController.offset !=
+                        _scrollController.position.maxScrollExtent) {
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.linear,
+                      );
+                    }
+                    setState(() {
+                      _pin = pin;
+                    });
+                  },
+                ),
                 const SizedBox(height: 64),
                 Container(
                   padding: EdgeInsets.all(16.0),
@@ -84,6 +103,7 @@ class _PinPageState extends State<PinPage> {
                   child: BouncingButton(
                     scaleBound: 0.02,
                     child: GradientedActionButton(
+                        disabled: _pin.length != 4,
                         text: 'Продолжить',
                         onPressed: () => Navigator.of(context).push(
                             MaterialPageRoute(

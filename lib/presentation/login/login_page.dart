@@ -38,9 +38,6 @@ class LoginPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image(
-                          image: AssetImage('assets/icons/emoji_monocle.png'),
-                        ),
                         Text(
                           'Вход',
                           style: primaryText34,

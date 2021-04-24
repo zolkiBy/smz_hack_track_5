@@ -21,7 +21,7 @@ class _TabBarPageState extends State<TabBarPage> {
     'assets/icons/settings.svg',
   ];
 
-  var _currentIndex = 0;
+  var _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +39,7 @@ class _TabBarPageState extends State<TabBarPage> {
                 alignment: Alignment.bottomCenter,
                 child: NXTabBar(
                   items: tabItems,
+                  initialIndex: _currentIndex,
                   onChanged: (index) {
                     setState(() {
                       _currentIndex = index;
