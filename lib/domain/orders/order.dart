@@ -13,6 +13,7 @@ class Order extends Equatable {
   final String startDate;
   final User contractor;
   final User? responsible;
+  final String? description;
 
   const Order({
     required this.id,
@@ -22,6 +23,7 @@ class Order extends Equatable {
     required this.startDate,
     required this.price,
     required this.contractor,
+    this.description,
     this.responsible,
   });
 
@@ -37,6 +39,8 @@ class Order extends Equatable {
           name: 'Градиенко А.В.',
         ),
         responsible: responsible,
+        description:
+            'Требуется разработать эскизный проект и эскизную схему в соответствии со стандартом ГОСТ ЕН 13060-2011 для комплекса жилых помещенийТребуется разработать эскизный проект и эскизную схему в соответствии со стандартом ГОСТ ЕН 13060-2011 для комплекса жилых помещений',
       );
 
   @override

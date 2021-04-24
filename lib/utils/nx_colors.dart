@@ -18,8 +18,11 @@ class NXColors {
   static const orderStatusFinished = orange;
   static const orderStatusPayed = Colors.white;
 
+  static const materialDart = Color(0xFF2A2A2A);
+
   static const lightGrey = Color(0x99EBEBF5);
   static const darkGrey = Color(0xff747480);
+  static const systemGrey6 = Color(0xff302C26);
   static const darkGreyOpacity18 = Color(0x2e747480);
   static const systemGrey = Color(0xffAEAEB2);
   static const systemGrey2 = Color(0xFF636366);

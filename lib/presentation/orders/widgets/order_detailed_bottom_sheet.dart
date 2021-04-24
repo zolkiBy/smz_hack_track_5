@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
+import 'package:flutter_app/presentation/orders/widgets/pay_confirmation_bottom_sheet.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_app/utils/string_formatter.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class OrderDetailedBottomSheet extends StatelessWidget {
   final Order order;
@@ -74,19 +76,74 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                 _buildPerformer(),
                 _buildDivider(),
                 _buildResponsible(),
+                Visibility(
+                  visible: order.description == null,
+                  child: const SizedBox(height: 16),
+                ),
+                _buildDescription(),
                 _buildActions(),
                 const SizedBox(height: 32),
-                BouncingButton(
-                  scaleBound: 0.02,
-                  child: GradientedActionButton(
-                    text: 'Подтвердить и оплатить',
-                    onPressed: () {},
+                Visibility(
+                  visible: order.status != OrderStatus.payed,
+                  child: BouncingButton(
+                    scaleBound: 0.02,
+                    child: GradientedActionButton(
+                      text: 'Подтвердить и оплатить',
+                      onPressed: () {
+                        showMaterialModalBottomSheet(
+                            animationCurve: Curves.easeInOut,
+                            context: context,
+                            backgroundColor: Colors.black.withOpacity(0.03),
+                            expand: true,
+                            builder: (context) =>
+                                PayConfirmationBottomSheet()).then((value) {
+                          if (value == true) {
+                            Navigator.of(context).pop();
+                          }
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: order.status == OrderStatus.payed,
+                  child: BouncingButton(
+                    scaleBound: 0.02,
+                    child: ActionButton(
+                      color: NXColors.materialDark.withOpacity(.45),
+                      text: 'Оплачен',
+                      textStyle: TextStyle(color: NXColors.orange),
+                      disabled: true,
+                    ),
                   ),
                 ),
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _buildDescription() {
+    if (order.description == null || order.description!.isEmpty) {
+      return Container();
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: SizedBox(
+        height: 100,
+        child: SingleChildScrollView(
+          physics: ClampingScrollPhysics(),
+          child: Column(
+            children: [
+              Text(
+                order.description!,
+                style: secondaryText16,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -116,7 +173,9 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           scaleBound: 0.03,
           child: Container(
             height: 54,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: NXColors.darkGrey.withOpacity(0.18)),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: NXColors.darkGrey.withOpacity(0.18)),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +228,11 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           order.responsible!.name,
           style: primaryText18,
         ),
-        const SizedBox(height: 32),
+        Visibility(
+          visible: order.description == null,
+          child: const SizedBox(height: 16),
+        ),
+        Visibility(visible: order.description != null, child: _buildDivider())
       ],
     );
   }

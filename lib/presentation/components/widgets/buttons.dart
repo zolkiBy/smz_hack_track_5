@@ -58,6 +58,7 @@ class FilledActionButton extends StatelessWidget {
 
 class ActionButton extends StatelessWidget {
   final Color? color;
+  final TextStyle? textStyle;
   final Gradient? gradient;
   final String text;
   final bool disabled;
@@ -69,6 +70,7 @@ class ActionButton extends StatelessWidget {
     this.disabled = false,
     this.color,
     required this.text,
+    this.textStyle,
     this.onPressed,
   }) : super(key: key);
 
@@ -93,7 +95,10 @@ class ActionButton extends StatelessWidget {
             gradient: gradient,
           ),
           child: Center(
-            child: Text(text),
+            child: Text(
+              text,
+              style: textStyle == null ? null : textStyle,
+            ),
           ),
         ),
       ),
