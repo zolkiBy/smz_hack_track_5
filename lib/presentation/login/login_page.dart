@@ -14,6 +14,7 @@ class LoginPage extends StatelessWidget {
       child: GradientedBackground(
         child: Scaffold(
           body: SingleChildScrollView(
+            physics: ClampingScrollPhysics(),
             child: Container(
               padding: EdgeInsets.all(16.0),
               child: Column(
@@ -32,7 +33,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 60.0, bottom: 16.0),
+                    padding: const EdgeInsets.only(top: 40.0, bottom: 16.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -51,7 +52,9 @@ class LoginPage extends StatelessWidget {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: NXColors.inputFieldFillColor,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              Constants.widgetBorderRadius)),
                       hintText: 'Введите логин',
                       hintStyle: secondaryText16,
                     ),
@@ -65,7 +68,9 @@ class LoginPage extends StatelessWidget {
                         suffixIcon: Icon(Icons.visibility_off_outlined),
                         filled: true,
                         fillColor: NXColors.inputFieldFillColor,
-                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius)),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                                Constants.widgetBorderRadius)),
                         hintText: 'Введите пароль',
                         hintStyle: secondaryText16,
                       ),
@@ -85,7 +90,10 @@ class LoginPage extends StatelessWidget {
                     child: BouncingButton(
                       child: GradientedActionButton(
                           text: 'Войти',
-                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => TabBarPage()))),
+                          onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  fullscreenDialog: true,
+                                  builder: (context) => TabBarPage()))),
                     ),
                   ),
                 ],

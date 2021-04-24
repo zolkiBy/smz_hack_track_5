@@ -75,9 +75,12 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                 _buildResponsible(),
                 _buildActions(),
                 const SizedBox(height: 32),
-                GradientedActionButton(
-                  text: 'Подтвердить и оплатить',
-                  onPressed: () {},
+                BouncingButton(
+                  scaleBound: 0.02,
+                  child: GradientedActionButton(
+                    text: 'Подтвердить и оплатить',
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),
@@ -248,8 +251,15 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
-            color: NXColors.lightGrey.withOpacity(0.6),
+            color: Colors.white,
           ),
+        ),
+        const SizedBox(width: 8),
+        SvgPicture.asset(
+          'assets/icons/rub.svg',
+          width: 22,
+          height: 22,
+          color: Colors.white,
         )
       ],
     );

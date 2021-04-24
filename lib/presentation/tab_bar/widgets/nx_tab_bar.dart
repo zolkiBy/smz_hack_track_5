@@ -66,6 +66,7 @@ class _NXTabBarState extends State<NXTabBar> {
                           item,
                           width: 44,
                           height: 44,
+                          fit: BoxFit.cover,
                           color: _currentIndex == widget.items.indexOf(item)
                               ? NXColors.orange
                               : NXColors.systemGrey,

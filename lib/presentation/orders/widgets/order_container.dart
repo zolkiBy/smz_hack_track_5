@@ -22,33 +22,13 @@ class OrderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BouncingButton(
-      scaleBound: 0.02,
-      onTap: () {
-        showMaterialModalBottomSheet(
-          context: context,
-          backgroundColor: Colors.black.withOpacity(0.03),
-          expand: true,
-          builder: (context) => OrderDetailedBottomSheet(
-            order: order,
-          ),
-        );
-      },
-      child: Slidable(
-        actionPane: SlidableScrollActionPane(),
-        actions: [
-          NXSlideAction(
-            svgName: 'share',
-          ),
-          NXSlideAction(
-            svgName: 'message',
-          ),
-          NXSlideAction(
-            svgName: 'disput',
-          ),
-        ],
-        secondaryActions: [
-          Container(
+    return Slidable(
+      actionPane: SlidableScrollActionPane(),
+      actionExtentRatio: 0.5,
+      secondaryActions: [
+        BouncingButton(
+          scaleBound: 0.02,
+          child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             width: 108,
             decoration: BoxDecoration(
@@ -64,29 +44,44 @@ class OrderContainer extends StatelessWidget {
               ),
             ),
           ),
-        ],
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          margin: const EdgeInsets.symmetric(vertical: 4),
-          decoration: BoxDecoration(
-            color: NXColors.darkGrey.withOpacity(0.18),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Column(
-            children: [
-              Text(
-                '№${order.number} – ${order.title}',
-                style: primaryText18,
+        ),
+      ],
+      child: GestureDetector(
+        child: BouncingButton(
+          scaleBound: 0.02,
+          onTap: () {
+            showMaterialModalBottomSheet(
+              context: context,
+              backgroundColor: Colors.black.withOpacity(0.03),
+              expand: true,
+              builder: (context) => OrderDetailedBottomSheet(
+                order: order,
               ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildStatus(),
-                  _buildPrice(price: order.price),
-                ],
-              ),
-            ],
+            );
+          },
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            margin: const EdgeInsets.symmetric(vertical: 4),
+            decoration: BoxDecoration(
+              color: NXColors.darkGrey.withOpacity(0.18),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  '№${order.number} – ${order.title}',
+                  style: primaryText18,
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildStatus(),
+                    _buildPrice(price: order.price),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -133,8 +128,15 @@ class OrderContainer extends StatelessWidget {
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
-            color: NXColors.lightGrey.withOpacity(0.6),
+            color: Colors.white,
           ),
+        ),
+        const SizedBox(width: 8),
+        SvgPicture.asset(
+          'assets/icons/rub.svg',
+          width: 22,
+          height: 22,
+          color: Colors.white,
         )
       ],
     );

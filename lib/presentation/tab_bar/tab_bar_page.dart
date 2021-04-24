@@ -16,7 +16,7 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> {
   final tabItems = [
-    'assets/icons/home.svg',
+    'assets/icons/chats.svg',
     'assets/icons/work.svg',
     'assets/icons/settings.svg',
   ];
@@ -34,7 +34,7 @@ class _TabBarPageState extends State<TabBarPage> {
         child: Scaffold(
           body: Stack(
             children: [
-              const OrdersPage(),
+              _buildCurrentPage(),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: NXTabBar(
@@ -51,5 +51,14 @@ class _TabBarPageState extends State<TabBarPage> {
         ),
       ),
     );
+  }
+
+  Widget _buildCurrentPage() {
+    switch (_currentIndex) {
+      case 1:
+        return OrdersPage();
+      default:
+        return OrdersPage();
+    }
   }
 }

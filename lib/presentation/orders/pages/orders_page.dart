@@ -11,14 +11,6 @@ import 'package:flutter_app/presentation/orders/widgets/orders_list.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Styles {
-  static const segmentedValue = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w500,
-    color: Colors.white,
-  );
-}
-
 class OrdersPage extends StatefulWidget {
   const OrdersPage({Key? key}) : super(key: key);
 
@@ -38,7 +30,7 @@ class _OrdersPageState extends State<OrdersPage> {
           children: [
             BouncingButton(
               child: NXIconButton(
-                svgName: 'sort',
+                svgName: 'stack',
               ),
             ),
             NXSlidingSegmentedControl(
@@ -49,17 +41,8 @@ class _OrdersPageState extends State<OrdersPage> {
                 });
               },
               children: {
-                0: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    'Заказы',
-                    style: Styles.segmentedValue,
-                  ),
-                ),
-                1: Text(
-                  'Оплаты',
-                  style: Styles.segmentedValue,
-                ),
+                0: 'Заказы',
+                1: 'Финансы',
               },
             ),
             BouncingButton(
