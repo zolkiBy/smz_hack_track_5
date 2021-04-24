@@ -26,8 +26,7 @@ class _FinanceListState extends State<FinanceList> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding:
-            const EdgeInsets.only(top: 16, right: 16, left: 16, bottom: 120),
+        padding: const EdgeInsets.only(top: 16, right: 16, left: 16, bottom: 120),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,7 +34,7 @@ class _FinanceListState extends State<FinanceList> {
             Center(
               child: Text(
                 'Январь 2021 - Апрель 2021',
-                style: secondaryText16,
+                style: secondaryTextSemiBold16,
               ),
             ),
             const SizedBox(height: 21),
@@ -45,7 +44,7 @@ class _FinanceListState extends State<FinanceList> {
             const SizedBox(height: 24),
             Text(
               'ПО ПРОЕКТАМ',
-              style: secondaryText16,
+              style: secondaryTextSemiBold16,
             ),
             const SizedBox(height: 16),
             _buildPieProjectDescription(
@@ -79,12 +78,9 @@ class _FinanceListState extends State<FinanceList> {
         PieChartData(
             pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
               setState(() {
-                final desiredTouch =
-                    pieTouchResponse.touchInput is! PointerExitEvent &&
-                        pieTouchResponse.touchInput is! PointerUpEvent;
+                final desiredTouch = pieTouchResponse.touchInput is! PointerExitEvent && pieTouchResponse.touchInput is! PointerUpEvent;
                 if (desiredTouch && pieTouchResponse.touchedSection != null) {
-                  touchedIndex =
-                      pieTouchResponse.touchedSection?.touchedSectionIndex;
+                  touchedIndex = pieTouchResponse.touchedSection?.touchedSectionIndex;
                 } else {
                   touchedIndex = -1;
                 }
@@ -112,7 +108,7 @@ class _FinanceListState extends State<FinanceList> {
               title: '52.7%',
               radius: radius,
               titlePositionPercentageOffset: 1.6,
-              titleStyle: primaryText16);
+              titleStyle: primaryTextBold16);
         case 1:
           return PieChartSectionData(
             color: NXColors.greenGradientStart,
@@ -120,7 +116,7 @@ class _FinanceListState extends State<FinanceList> {
             titlePositionPercentageOffset: 1.6,
             title: '32.1%',
             radius: radius,
-            titleStyle: primaryText16,
+            titleStyle: primaryTextBold16,
           );
         case 2:
           return PieChartSectionData(
@@ -129,7 +125,7 @@ class _FinanceListState extends State<FinanceList> {
             title: '15.3%',
             titlePositionPercentageOffset: 1.6,
             radius: radius,
-            titleStyle: primaryText16,
+            titleStyle: primaryTextBold16,
           );
         default:
           return PieChartSectionData();
@@ -147,7 +143,7 @@ class _FinanceListState extends State<FinanceList> {
         Expanded(
           child: Text(
             title,
-            style: primaryText13,
+            style: primaryTextBold13,
           ),
         ),
         Expanded(
@@ -188,7 +184,7 @@ class _FinanceListState extends State<FinanceList> {
         Expanded(
           child: Text(
             title,
-            style: primaryText16,
+            style: primaryTextBold16,
           ),
         ),
         Expanded(

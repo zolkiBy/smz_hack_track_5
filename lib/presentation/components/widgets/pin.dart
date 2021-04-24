@@ -166,7 +166,7 @@ class _PinItem extends StatelessWidget {
           selectAll: false,
         ),
         obscureText: true,
-        style: primaryText28,
+        style: primaryTextBold28,
         keyboardType: TextInputType.number,
         decoration: BoxDecoration(
             color: NXColors.inputFieldFillColor,

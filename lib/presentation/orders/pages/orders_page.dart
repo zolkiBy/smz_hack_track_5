@@ -1,18 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/application/orders/orders_bloc.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_app_bar.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_icon_button.dart';
 import 'package:flutter_app/presentation/components/widgets/nx_segmented_control.dart';
 import 'package:flutter_app/presentation/orders/widgets/finance_list.dart';
 import 'package:flutter_app/presentation/orders/widgets/orders_list.dart';
-import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_app/utils/string_formatter.dart';
 import 'package:flutter_app/utils/styles.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class OrdersPage extends StatefulWidget {
@@ -87,12 +82,12 @@ class _OrdersPageState extends State<OrdersPage> {
               children: [
                 Text(
                   'Баланс',
-                  style: primaryText18,
+                  style: primaryTextBold18,
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(numberWithSpaces(52398475038), style: primaryText22),
+                    Text(numberWithSpaces(52398475038), style: primaryTextBold22),
                     const SizedBox(width: 8),
                     SvgPicture.asset(
                       'assets/icons/rub.svg',

@@ -40,7 +40,7 @@ class OrderContainer extends StatelessWidget {
             child: Center(
               child: Text(
                 'Оплатить',
-                style: primaryText18,
+                style: primaryTextBold18,
               ),
             ),
           ),
@@ -71,7 +71,7 @@ class OrderContainer extends StatelessWidget {
               children: [
                 Text(
                   '№${order.number} – ${order.title}',
-                  style: primaryText18,
+                  style: primaryTextBold18,
                 ),
                 const SizedBox(height: 16),
                 Row(

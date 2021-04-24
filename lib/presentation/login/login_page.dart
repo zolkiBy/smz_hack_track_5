@@ -3,7 +3,6 @@ import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
 import 'package:flutter_app/presentation/pin/pin_page.dart';
-import 'package:flutter_app/presentation/tab_bar/tab_bar_page.dart';
 import 'package:flutter_app/utils/constants.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_app/utils/styles.dart';
@@ -30,7 +29,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
                       'НАЙМИКС',
-                      style: primaryText18,
+                      style: primaryTextBold18,
                     ),
                   ),
                   Padding(
@@ -40,37 +39,33 @@ class LoginPage extends StatelessWidget {
                       children: [
                         Text(
                           'Вход',
-                          style: primaryText34,
+                          style: primaryTextBold34,
                         )
                       ],
                     ),
                   ),
                   TextFormField(
-                    style: primaryText16,
+                    style: primaryTextBold16,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: NXColors.inputFieldFillColor,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(
-                              Constants.widgetBorderRadius)),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius)),
                       hintText: 'Введите логин',
-                      hintStyle: secondaryText16,
+                      hintStyle: secondaryTextSemiBold16,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: TextFormField(
                       obscureText: true,
-                      style: primaryText16,
+                      style: primaryTextBold16,
                       decoration: InputDecoration(
                         suffixIcon: Icon(Icons.visibility_off_outlined),
                         filled: true,
                         fillColor: NXColors.inputFieldFillColor,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                                Constants.widgetBorderRadius)),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius)),
                         hintText: 'Введите пароль',
-                        hintStyle: secondaryText16,
+                        hintStyle: secondaryTextSemiBold16,
                       ),
                     ),
                   ),
@@ -89,10 +84,7 @@ class LoginPage extends StatelessWidget {
                       scaleBound: 0.03,
                       child: GradientedActionButton(
                           text: 'Войти',
-                          onPressed: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  fullscreenDialog: true,
-                                  builder: (context) => PinPage()))),
+                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => PinPage()))),
                     ),
                   ),
                 ],
