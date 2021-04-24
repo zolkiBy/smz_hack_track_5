@@ -3,6 +3,7 @@ import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_svg/svg.dart';
 
 class OrderContainer extends StatelessWidget {
   final Order order;
@@ -17,35 +18,14 @@ class OrderContainer extends StatelessWidget {
     return Slidable(
       actionPane: SlidableScrollActionPane(),
       actions: [
-        Container(
-          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
-          decoration: BoxDecoration(
-            color: NXColors.fillDarkPrimary.withOpacity(.38),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Center(
-            child: Icon(Icons.share),
-          ),
+        NXSlideAction(
+          svgName: 'share',
         ),
-        Container(
-          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
-          decoration: BoxDecoration(
-            color: NXColors.fillDarkPrimary.withOpacity(.38),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Center(
-            child: Icon(Icons.share),
-          ),
+        NXSlideAction(
+          svgName: 'message',
         ),
-        Container(
-          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
-          decoration: BoxDecoration(
-            color: NXColors.fillDarkPrimary.withOpacity(.38),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Center(
-            child: Icon(Icons.share),
-          ),
+        NXSlideAction(
+          svgName: 'disput',
         ),
       ],
       secondaryActions: [
@@ -138,6 +118,31 @@ class OrderContainer extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class NXSlideAction extends StatelessWidget {
+  final String svgName;
+  final VoidCallback? onTap;
+
+  const NXSlideAction({
+    Key? key,
+    required this.svgName,
+    this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
+      decoration: BoxDecoration(
+        color: NXColors.fillDarkPrimary.withOpacity(.38),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Center(
+        child: SvgPicture.asset('assets/icons/$svgName.svg'),
+      ),
     );
   }
 }
