@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
-import 'package:flutter_app/presentation/components/widgets/styles.dart';
+import 'file:///D:/Programming/Projects/Pet/smz_hack_track_5/flutter_app/lib/utils/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -112,9 +112,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           scaleBound: 0.03,
           child: Container(
             height: 54,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: NXColors.darkGrey.withOpacity(0.18)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: NXColors.darkGrey.withOpacity(0.18)),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
