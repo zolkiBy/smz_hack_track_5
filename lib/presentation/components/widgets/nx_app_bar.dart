@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 
 class NXAppBar extends PreferredSize {
-  final Row _child;
+  final Widget _child;
 
   NXAppBar({
     Key? key,
-    required Row child,
+    required Widget child,
   })   : _child = child,
         super(
           child: child,
-          preferredSize: Size.fromHeight(80),
+          preferredSize: Size.fromHeight(96),
         );
 
   @override
@@ -28,7 +28,6 @@ class NXAppBar extends PreferredSize {
           blendMode: BlendMode.dstIn,
         ),
         Container(
-          height: 155,
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

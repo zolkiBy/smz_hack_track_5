@@ -5,7 +5,7 @@ class NXColors {
   NXColors._();
 
   static const bgFilledActionButton = materialDark;
-  static const bgStartGradientActionButton = orangeGradientEnd;
+  static const bgStartGradientActionButton = orangeGradientStart;
   static const bgEndGradientActionButton = orangeGradientEnd;
   static const textPrimary = Colors.white;
   static const textSecondary = lightGrey;
@@ -21,6 +21,8 @@ class NXColors {
   static const fillDarkPrimary = Color(0xFF787880);
   static const separatorDarkGrey = Color(0xFF545458);
   static const quartenaryLightGrey = Color(0xFF787880);
+
+  static const chartBlue = Color(0xFF1565C2);
 
   static const backgroundBlack = Color(0xff1B120F);
   static const materialDark = Color(0x73000000);

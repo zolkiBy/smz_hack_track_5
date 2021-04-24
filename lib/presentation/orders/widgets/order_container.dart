@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_app/utils/string_formatter.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
@@ -51,6 +52,7 @@ class OrderContainer extends StatelessWidget {
           scaleBound: 0.02,
           onTap: () {
             showMaterialModalBottomSheet(
+              animationCurve: Curves.easeInOut,
               context: context,
               backgroundColor: Colors.black.withOpacity(0.03),
               expand: true,
@@ -124,7 +126,7 @@ class OrderContainer extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          price.toStringAsFixed(2),
+          numberWithSpaces(price),
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
