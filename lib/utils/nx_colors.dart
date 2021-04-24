@@ -16,6 +16,8 @@ class NXColors {
   static const systemGrey = Color(0xffAEAEB2);
   static const systemGrey2 = Color(0xff525252);
   static const darkGrey2 = Color(0x5C787880);
+  static const fillDarkPrimary = Color(0xFF787880);
+  static const separatorDarkGrey = Color(0xFF545458);
 
   static const backgroundBlack = Color(0xff1B120F);
   static const materialDark = Color(0x73000000);
