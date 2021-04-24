@@ -56,8 +56,7 @@ class _PinState extends State<Pin> {
                 if (widget.onChanged != null) {
                   widget.onChanged!(pin);
                 }
-                Future.delayed(Duration(milliseconds: millisecondsDelay))
-                    .then((value) => secondFieldFocusNode?.requestFocus());
+                Future.delayed(Duration(milliseconds: millisecondsDelay)).then((value) => secondFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -76,8 +75,7 @@ class _PinState extends State<Pin> {
                 if (widget.onChanged != null) {
                   widget.onChanged!(pin);
                 }
-                Future.delayed(Duration(milliseconds: millisecondsDelay))
-                    .then((value) => thirdFieldFocusNode?.requestFocus());
+                Future.delayed(Duration(milliseconds: millisecondsDelay)).then((value) => thirdFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -96,8 +94,7 @@ class _PinState extends State<Pin> {
                 if (widget.onChanged != null) {
                   widget.onChanged!(pin);
                 }
-                Future.delayed(Duration(milliseconds: millisecondsDelay))
-                    .then((value) => fourthFieldFocusNode?.requestFocus());
+                Future.delayed(Duration(milliseconds: millisecondsDelay)).then((value) => fourthFieldFocusNode?.requestFocus());
               }
             }),
         _PinItem(
@@ -116,9 +113,7 @@ class _PinState extends State<Pin> {
                 if (widget.onChanged != null) {
                   widget.onChanged!(pin);
                 }
-                Future.delayed(Duration(milliseconds: millisecondsDelay)).then(
-                    (value) =>
-                        FocusScope.of(context).requestFocus(FocusNode()));
+                Future.delayed(Duration(milliseconds: millisecondsDelay)).then((value) => FocusScope.of(context).requestFocus(FocusNode()));
               }
             }),
       ],
@@ -175,8 +170,7 @@ class _PinItem extends StatelessWidget {
         keyboardType: TextInputType.number,
         decoration: BoxDecoration(
             color: NXColors.inputFieldFillColor,
-            border: Border.all(
-                color: NXColors.fillDarkPrimary.withOpacity(1), width: 2),
+            border: Border.all(color: NXColors.fillDarkPrimary.withOpacity(1), width: 2),
             borderRadius: BorderRadius.circular(
               Constants.pinWidgetBorderRadius,
             )),

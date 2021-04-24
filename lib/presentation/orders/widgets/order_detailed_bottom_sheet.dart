@@ -5,6 +5,7 @@ import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_app/utils/string_formatter.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -115,9 +116,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           scaleBound: 0.03,
           child: Container(
             height: 54,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: NXColors.darkGrey.withOpacity(0.18)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: NXColors.darkGrey.withOpacity(0.18)),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -188,7 +187,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              order.performer.name,
+              order.contractor.name,
               style: primaryText18,
             )
           ],
@@ -219,20 +218,14 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           width: 22,
           height: 22,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(colors: [
-                NXColors.greenGradientStart,
-                NXColors.greenGradientEnd,
-              ])),
-          child: Icon(
-            Icons.check,
-            color: NXColors.backgroundBlack,
-            size: 16,
+            shape: BoxShape.circle,
+            color: order.status.iconColor,
           ),
+          child: order.status.icon,
         ),
         const SizedBox(width: 4),
         Text(
-          'Выполнено',
+          order.status.name,
           style: TextStyle(
             fontSize: 15,
             color: Colors.white,
@@ -247,7 +240,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          price.toStringAsFixed(2),
+          numberWithSpaces(price),
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,

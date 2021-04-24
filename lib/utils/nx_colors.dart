@@ -12,11 +12,17 @@ class NXColors {
   static const inputFieldFillColor = darkGrey2;
   static const bgWidgets = darkGreyOpacity18;
 
+  static const orderStatusDefault = green;
+  static const orderStatusInProgress = green;
+  static const orderStatusPending = systemGrey2;
+  static const orderStatusFinished = orange;
+  static const orderStatusPayed = Colors.white;
+
   static const lightGrey = Color(0x99EBEBF5);
   static const darkGrey = Color(0xff747480);
   static const darkGreyOpacity18 = Color(0x2e747480);
   static const systemGrey = Color(0xffAEAEB2);
-  static const systemGrey2 = Color(0xff525252);
+  static const systemGrey2 = Color(0xFF636366);
   static const darkGrey2 = Color(0x5C787880);
   static const fillDarkPrimary = Color(0xFF787880);
   static const separatorDarkGrey = Color(0xFF545458);
@@ -27,10 +33,11 @@ class NXColors {
   static const backgroundBlack = Color(0xff1B120F);
   static const materialDark = Color(0x73000000);
 
-  static const orange = Color(0xffDC8E00);
+  static const orange = Color(0xFFFFB226);
   static const orangeGradientStart = Color(0xFFFFB226);
   static const orangeGradientEnd = Color(0xFFE89204);
 
+  static const green = Color(0xFF3DAA17);
   static const greenGradientStart = Color(0xFF1FCD27);
   static const greenGradientEnd = Color(0xFF00AD08);
 }
