@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class OrderContainer extends StatelessWidget {
   final Order order;
@@ -13,28 +14,82 @@ class OrderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      decoration: BoxDecoration(
-        color: NXColors.darkGrey.withOpacity(0.18),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        children: [
-          Text(
-            '№${order.number} – ${order.title}',
-            style: primaryText18,
+    return Slidable(
+      actionPane: SlidableScrollActionPane(),
+      actions: [
+        Container(
+          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
+          decoration: BoxDecoration(
+            color: NXColors.fillDarkPrimary.withOpacity(.38),
+            borderRadius: BorderRadius.circular(16),
           ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildStatus(),
-              _buildPrice(price: order.price),
-            ],
+          child: Center(
+            child: Icon(Icons.share),
           ),
-        ],
+        ),
+        Container(
+          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
+          decoration: BoxDecoration(
+            color: NXColors.fillDarkPrimary.withOpacity(.38),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Center(
+            child: Icon(Icons.share),
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(right: 8, top: 4, bottom: 4),
+          decoration: BoxDecoration(
+            color: NXColors.fillDarkPrimary.withOpacity(.38),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Center(
+            child: Icon(Icons.share),
+          ),
+        ),
+      ],
+      secondaryActions: [
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          // padding: const EdgeInsets.symmetric(horizontal: 27),
+          width: 108,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              gradient: LinearGradient(colors: [
+                NXColors.orangeGradientStart,
+                NXColors.orangeGradientEnd,
+              ])),
+          child: Center(
+            child: Text(
+              'Оплатить',
+              style: primaryText18,
+            ),
+          ),
+        ),
+      ],
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(vertical: 4),
+        decoration: BoxDecoration(
+          color: NXColors.darkGrey.withOpacity(0.18),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          children: [
+            Text(
+              '№${order.number} – ${order.title}',
+              style: primaryText18,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildStatus(),
+                _buildPrice(price: order.price),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
