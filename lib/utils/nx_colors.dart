@@ -10,9 +10,11 @@ class NXColors {
   static const textPrimary = Colors.white;
   static const textSecondary = lightGrey;
   static const inputFieldFillColor = darkGrey2;
+  static const bgWidgets = darkGreyOpacity18;
 
   static const lightGrey = Color(0x99EBEBF5);
   static const darkGrey = Color(0xff747480);
+  static const darkGreyOpacity18 = Color(0x2e747480);
   static const systemGrey = Color(0xffAEAEB2);
   static const systemGrey2 = Color(0xff525252);
   static const darkGrey2 = Color(0x5C787880);

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
-import 'package:flutter_app/presentation/components/widgets/styles.dart';
+import 'file:///D:/Programming/Projects/Pet/smz_hack_track_5/flutter_app/lib/utils/styles.dart';
+import 'package:flutter_app/presentation/pin/pin_page.dart';
 import 'package:flutter_app/presentation/tab_bar/tab_bar_page.dart';
 import 'package:flutter_app/utils/constants.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
@@ -85,7 +86,7 @@ class LoginPage extends StatelessWidget {
                     child: BouncingButton(
                       child: GradientedActionButton(
                           text: 'Войти',
-                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => TabBarPage()))),
+                          onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => PinPage()))),
                     ),
                   ),
                 ],

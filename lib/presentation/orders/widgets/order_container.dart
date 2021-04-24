@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
-import 'package:flutter_app/presentation/components/widgets/styles.dart';
+import 'file:///D:/Programming/Projects/Pet/smz_hack_track_5/flutter_app/lib/utils/styles.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
