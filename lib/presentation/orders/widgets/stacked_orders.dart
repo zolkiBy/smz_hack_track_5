@@ -31,6 +31,18 @@ class _StackedOrdersState extends State<StackedOrders> {
     OrderStatus.finished: false,
     OrderStatus.payed: false,
   };
+  Map<OrderStatus, int> ordersSums = {
+    OrderStatus.inProgress: 244620,
+    OrderStatus.pending: 1178000,
+    OrderStatus.finished: 3843990,
+    OrderStatus.payed: 410690,
+  };
+  Map<OrderStatus, int> ordersCount = {
+    OrderStatus.inProgress: 25,
+    OrderStatus.pending: 29,
+    OrderStatus.finished: 334,
+    OrderStatus.payed: 25,
+  };
 
   @override
   void initState() {
@@ -125,7 +137,8 @@ class _StackedOrdersState extends State<StackedOrders> {
                 child: AnimatedContainer(
                     duration: Duration(milliseconds: 200),
                     height: !ordersExpanded[statusByIndex]! ? null : 0,
-                    child: _buildStack(orders)),
+                    child: _buildStack(orders,
+                        ordersSum: ordersSums[ordersByStatus]!)),
               ),
             ),
             AnimatedContainer(
@@ -146,7 +159,10 @@ class _StackedOrdersState extends State<StackedOrders> {
     );
   }
 
-  Slidable _buildStack(List<Order> orders) {
+  Slidable _buildStack(
+    List<Order> orders, {
+    required int ordersSum,
+  }) {
     return Slidable(
       secondaryActions: [
         BouncingButton(
@@ -216,8 +232,8 @@ class _StackedOrdersState extends State<StackedOrders> {
             Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: StackOrderContainer(
-                ordersCount: orders.length,
-                ordersPriceSum: _getSum(orders: orders),
+                ordersCount: ordersCount[orders.first.status]!,
+                ordersPriceSum: ordersSum.toDouble(),
               ),
             ),
           ],

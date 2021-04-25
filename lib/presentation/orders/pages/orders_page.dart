@@ -99,7 +99,7 @@ class _OrdersPageState extends State<OrdersPage> {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(numberWithSpaces(52398475038),
+                    Text(numberWithSpaces(6655730.90),
                         style: primaryTextSemiBold22),
                     const SizedBox(width: 8),
                     SvgPicture.asset(
