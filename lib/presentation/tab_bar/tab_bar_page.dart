@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/application/orders/orders_bloc.dart';
+import 'package:flutter_app/presentation/chats/chats_page.dart';
 import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/orders/pages/orders_page.dart';
 import 'package:flutter_app/presentation/tab_bar/widgets/nx_tab_bar.dart';
@@ -56,6 +57,8 @@ class _TabBarPageState extends State<TabBarPage> {
 
   Widget _buildCurrentPage() {
     switch (_currentIndex) {
+      case 0:
+        return ChatsPage();
       case 1:
         return OrdersPage();
       default:
