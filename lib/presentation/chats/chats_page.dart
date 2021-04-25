@@ -31,7 +31,7 @@ class _ChatsPageState extends State<ChatsPage> {
           children: [
             Text(
               'Чаты',
-              style: primaryText28,
+              style: primaryTextBold28,
             ),
             BouncingButton(
               child: NXIconButton(
@@ -56,7 +56,7 @@ class _ChatsPageState extends State<ChatsPage> {
                 ),
                 child: Text(
                   chats[index],
-                  style: primaryText16,
+                  style: primaryTextSemiBold15,
                 ),
               ),
             );
