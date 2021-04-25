@@ -27,11 +27,13 @@ class NXColors {
   static const fillDarkPrimary = Color(0xFF787880);
   static const separatorDarkGrey = Color(0xFF545458);
   static const quartenaryLightGrey = Color(0xFF787880);
+  static const primaryDark = Color(0xFF3D2F23);
 
   static const chartBlue = Color(0xFF1565C2);
 
   static const backgroundBlack = Color(0xff1B120F);
   static const materialDark = Color(0x73000000);
+  static const thinMaterialDark = Color(0x732a2a2a);
 
   static const orange = Color(0xFFFFB226);
   static const orangeGradientStart = Color(0xFFFFB226);
