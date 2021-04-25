@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/orders/widgets/order_container.dart';
+import 'package:flutter_app/presentation/orders/widgets/pay_confirmation_bottom_sheet.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
 import 'package:flutter_app/utils/string_formatter.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class StackedOrders extends StatefulWidget {
   final List<Order> orders;
@@ -150,9 +152,14 @@ class _StackedOrdersState extends State<StackedOrders> {
         BouncingButton(
           scaleBound: 0.02,
           onTap: () {
-            setState(() {
-              ordersExpanded[orders.first.status] =
-                  !ordersExpanded[orders.first.status]!;
+            showMaterialModalBottomSheet(
+                    animationCurve: Curves.easeInOut,
+                    context: context,
+                    backgroundColor: Colors.black.withOpacity(0.03),
+                    expand: true,
+                    builder: (context) => PayConfirmationBottomSheet())
+                .then((value) {
+              setState(() {});
             });
           },
           child: Container(
