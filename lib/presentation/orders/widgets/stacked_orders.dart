@@ -138,7 +138,7 @@ class _StackedOrdersState extends State<StackedOrders> {
                     duration: Duration(milliseconds: 200),
                     height: !ordersExpanded[statusByIndex]! ? null : 0,
                     child: _buildStack(orders,
-                        ordersSum: ordersSums[ordersByStatus]!)),
+                        ordersSum: ordersSums[statusByIndex]!)),
               ),
             ),
             AnimatedContainer(
