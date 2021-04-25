@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: NXColors.backgroundBlack,
         primaryColor: Colors.white,
-        fontFamily: 'SF Pro Rounded Regular',
+        fontFamily: 'SF Pro Rounded',
       ),
       home: LoginPage(),
     );

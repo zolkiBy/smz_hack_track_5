@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/domain/orders/order.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
@@ -40,7 +38,7 @@ class OrderContainer extends StatelessWidget {
             child: Center(
               child: Text(
                 'Оплатить',
-                style: primaryTextBold18,
+                style: primaryTextSemiBold17,
               ),
             ),
           ),
@@ -71,7 +69,7 @@ class OrderContainer extends StatelessWidget {
               children: [
                 Text(
                   '№${order.number} – ${order.title}',
-                  style: primaryTextBold18,
+                  style: primaryTextSemiBold15,
                 ),
                 const SizedBox(height: 16),
                 Row(
@@ -105,10 +103,7 @@ class OrderContainer extends StatelessWidget {
         const SizedBox(width: 4),
         Text(
           order.status.name,
-          style: TextStyle(
-            fontSize: 15,
-            color: Colors.white,
-          ),
+          style: primaryTextMedium12,
         )
       ],
     );
@@ -120,11 +115,7 @@ class OrderContainer extends StatelessWidget {
       children: [
         Text(
           numberWithSpaces(price),
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
+          style: primaryTextSemiBold17,
         ),
         const SizedBox(width: 8),
         SvgPicture.asset(

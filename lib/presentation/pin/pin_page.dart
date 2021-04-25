@@ -79,7 +79,7 @@ class _PinPageState extends State<PinPage> {
                         flex: 3,
                         child: Text(
                           'Разрешить вход с помощью биометрии',
-                          style: secondaryTextSemiBold16,
+                          style: secondaryTextSemiBold15,
                         ),
                       ),
                       Expanded(

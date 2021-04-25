@@ -82,12 +82,12 @@ class _OrdersPageState extends State<OrdersPage> {
               children: [
                 Text(
                   'Баланс',
-                  style: primaryTextBold18,
+                  style: primaryTextSemiBold17,
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(numberWithSpaces(52398475038), style: primaryTextBold22),
+                    Text(numberWithSpaces(52398475038), style: primaryTextSemiBold22),
                     const SizedBox(width: 8),
                     SvgPicture.asset(
                       'assets/icons/rub.svg',

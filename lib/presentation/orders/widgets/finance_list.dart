@@ -34,7 +34,7 @@ class _FinanceListState extends State<FinanceList> {
             Center(
               child: Text(
                 'Январь 2021 - Апрель 2021',
-                style: secondaryTextSemiBold16,
+                style: secondaryTextSemiBold15,
               ),
             ),
             const SizedBox(height: 21),
@@ -44,7 +44,7 @@ class _FinanceListState extends State<FinanceList> {
             const SizedBox(height: 24),
             Text(
               'ПО ПРОЕКТАМ',
-              style: secondaryTextSemiBold16,
+              style: secondaryTextSemiBold15,
             ),
             const SizedBox(height: 16),
             _buildPieProjectDescription(
@@ -108,7 +108,7 @@ class _FinanceListState extends State<FinanceList> {
               title: '52.7%',
               radius: radius,
               titlePositionPercentageOffset: 1.6,
-              titleStyle: primaryTextBold16);
+              titleStyle: primaryTextSemiBold16);
         case 1:
           return PieChartSectionData(
             color: NXColors.greenGradientStart,
@@ -116,7 +116,7 @@ class _FinanceListState extends State<FinanceList> {
             titlePositionPercentageOffset: 1.6,
             title: '32.1%',
             radius: radius,
-            titleStyle: primaryTextBold16,
+            titleStyle: primaryTextSemiBold16,
           );
         case 2:
           return PieChartSectionData(
@@ -125,7 +125,7 @@ class _FinanceListState extends State<FinanceList> {
             title: '15.3%',
             titlePositionPercentageOffset: 1.6,
             radius: radius,
-            titleStyle: primaryTextBold16,
+            titleStyle: primaryTextSemiBold16,
           );
         default:
           return PieChartSectionData();
@@ -143,7 +143,7 @@ class _FinanceListState extends State<FinanceList> {
         Expanded(
           child: Text(
             title,
-            style: primaryTextBold13,
+            style: primaryTextSemiBold13,
           ),
         ),
         Expanded(
@@ -153,11 +153,7 @@ class _FinanceListState extends State<FinanceList> {
             children: [
               Text(
                 numberWithSpaces(price),
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+                style: primaryTextSemiBold15,
               ),
               const SizedBox(width: 8),
               SvgPicture.asset(
@@ -184,7 +180,7 @@ class _FinanceListState extends State<FinanceList> {
         Expanded(
           child: Text(
             title,
-            style: primaryTextBold16,
+            style: primaryTextSemiBold16,
           ),
         ),
         Expanded(
@@ -194,11 +190,7 @@ class _FinanceListState extends State<FinanceList> {
             children: [
               Text(
                 numberWithSpaces(price),
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+                style: primaryTextSemiBold15,
               ),
               const SizedBox(width: 8),
               SvgPicture.asset(

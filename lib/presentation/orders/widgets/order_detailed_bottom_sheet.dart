@@ -80,7 +80,6 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                   visible: order.description == null,
                   child: const SizedBox(height: 16),
                 ),
-                _buildDivider(),
                 _buildDescription(),
                 _buildActions(),
                 const SizedBox(height: 16),
@@ -96,8 +95,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                             context: context,
                             backgroundColor: Colors.black.withOpacity(0.03),
                             expand: true,
-                            builder: (context) =>
-                                PayConfirmationBottomSheet()).then((value) {
+                            builder: (context) => PayConfirmationBottomSheet()).then((value) {
                           if (value == true) {
                             Navigator.of(context).pop();
                           }
@@ -113,7 +111,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                     child: ActionButton(
                       color: NXColors.materialDark.withOpacity(.45),
                       text: 'Оплачен',
-                      textStyle: TextStyle(color: NXColors.orange),
+                      textStyle: primaryTextSemiBold17.copyWith(color: NXColors.orange),
                       disabled: true,
                     ),
                   ),
@@ -139,8 +137,8 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                order.description!,
-                style: secondaryText16,
+                order.description ?? "",
+                style: secondaryTextRegular15,
               ),
             ],
           ),
@@ -232,20 +230,6 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           child: const SizedBox(height: 16),
         ),
         Visibility(visible: order.description != null, child: _buildDivider())
-      ],
-    );
-  }
-
-  Widget _buildDescription() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          'Требуется разработать эскизный проект и эскизную схему в соответствии со стандартом ГОСТ ЕН 13060-2011 для комплекса жилых помещений. '
-          'Требуется разработать эскизный проект и эскизную схему в соответствии со стандартом ГОСТ ЕН 13060-2011 для комплекса жилых помещений',
-          style: secondaryTextRegular15,
-        ),
-        const SizedBox(height: 16),
       ],
     );
   }

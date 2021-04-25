@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
-                    style: primaryTextBold16,
+                    style: primaryTextSemiBold16,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: NXColors.inputFieldFillColor,
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                     child: TextFormField(
                       obscureText: true,
-                      style: primaryTextBold16,
+                      style: primaryTextSemiBold16,
                       decoration: InputDecoration(
                         suffixIcon: Icon(Icons.visibility_off_outlined),
                         filled: true,
@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 32.0),
                     child: BouncingButton(
                       child: FilledActionButton(
-                        text: 'Забыли пароль',
+                        text: 'Забыли пароль?',
                         onPressed: () {},
                       ),
                     ),
