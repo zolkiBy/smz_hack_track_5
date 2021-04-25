@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_app/utils/styles.dart';
 
 class NXSlidingSegmentedControl extends StatelessWidget {
   final Map<int, String> children;
@@ -27,9 +28,7 @@ class NXSlidingSegmentedControl extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(value,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                  style: primaryTextSemiBold15.copyWith(
                     color: groupValue == key ? NXColors.orange : Colors.white,
                   )),
             ));

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/constants.dart';
 import 'package:flutter_app/utils/nx_colors.dart';
+import 'package:flutter_app/utils/styles.dart';
 
 class GradientedActionButton extends StatelessWidget {
   final String text;
@@ -20,18 +21,15 @@ class GradientedActionButton extends StatelessWidget {
       key: key,
       gradient: LinearGradient(
         colors: [
-          disabled
-              ? NXColors.bgStartGradientActionButton.withOpacity(0.2)
-              : NXColors.bgStartGradientActionButton,
-          disabled
-              ? NXColors.bgEndGradientActionButton.withOpacity(0.2)
-              : NXColors.bgEndGradientActionButton,
+          disabled ? NXColors.bgStartGradientActionButton.withOpacity(0.2) : NXColors.bgStartGradientActionButton,
+          disabled ? NXColors.bgEndGradientActionButton.withOpacity(0.2) : NXColors.bgEndGradientActionButton,
         ],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       ),
       text: text,
       onPressed: disabled ? null : onPressed,
+      textStyle: primaryTextSemiBold17,
     );
   }
 }
@@ -41,9 +39,7 @@ class FilledActionButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
 
-  const FilledActionButton(
-      {Key? key, this.color, required this.text, required this.onPressed})
-      : super(key: key);
+  const FilledActionButton({Key? key, this.color, required this.text, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +48,7 @@ class FilledActionButton extends StatelessWidget {
       color: (color ?? NXColors.materialDark),
       text: text,
       onPressed: onPressed,
+      textStyle: primaryTextSemiBold17,
     );
   }
 }
@@ -84,9 +81,7 @@ class ActionButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
           padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(Constants.widgetBorderRadius))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(Constants.widgetBorderRadius))),
         ),
         child: Ink(
           decoration: BoxDecoration(

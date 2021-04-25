@@ -73,7 +73,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                   ],
                 ),
                 _buildDivider(),
-                _buildPerformer(),
+                _buildContractor(),
                 _buildDivider(),
                 _buildResponsible(),
                 Visibility(
@@ -82,21 +82,20 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                 ),
                 _buildDescription(),
                 _buildActions(),
-                const SizedBox(height: 32),
+                const SizedBox(height: 16),
                 Visibility(
                   visible: order.status != OrderStatus.payed,
                   child: BouncingButton(
                     scaleBound: 0.02,
                     child: GradientedActionButton(
-                      text: 'Подтвердить и оплатить',
+                      text: 'Оплатить',
                       onPressed: () {
                         showMaterialModalBottomSheet(
                             animationCurve: Curves.easeInOut,
                             context: context,
                             backgroundColor: Colors.black.withOpacity(0.03),
                             expand: true,
-                            builder: (context) =>
-                                PayConfirmationBottomSheet()).then((value) {
+                            builder: (context) => PayConfirmationBottomSheet()).then((value) {
                           if (value == true) {
                             Navigator.of(context).pop();
                           }
@@ -112,7 +111,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                     child: ActionButton(
                       color: NXColors.materialDark.withOpacity(.45),
                       text: 'Оплачен',
-                      textStyle: TextStyle(color: NXColors.orange),
+                      textStyle: primaryTextSemiBold17.copyWith(color: NXColors.orange),
                       disabled: true,
                     ),
                   ),
@@ -138,8 +137,8 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                order.description!,
-                style: secondaryText16,
+                order.description ?? "",
+                style: secondaryTextRegular15,
               ),
             ],
           ),
@@ -173,9 +172,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           scaleBound: 0.03,
           child: Container(
             height: 54,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: NXColors.darkGrey.withOpacity(0.18)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: NXColors.darkGrey.withOpacity(0.18)),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -189,7 +186,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
                   const SizedBox(width: 8),
                   Text(
                     title,
-                    style: primaryText18,
+                    style: primaryTextSemiBold17,
                   ),
                 ],
               ),
@@ -204,12 +201,12 @@ class OrderDetailedBottomSheet extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         Divider(
           color: NXColors.separatorDarkGrey.withOpacity(.65),
           thickness: 0.5,
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -221,12 +218,12 @@ class OrderDetailedBottomSheet extends StatelessWidget {
       children: [
         const Text(
           'Ответственный',
-          style: footnoteRegular,
+          style: secondaryTextRegular13,
         ),
         const SizedBox(height: 4),
         Text(
           order.responsible!.name,
-          style: primaryText18,
+          style: primaryTextSemiBold15,
         ),
         Visibility(
           visible: order.description == null,
@@ -237,7 +234,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildPerformer() {
+  Widget _buildContractor() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -245,13 +242,13 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Исполнитель',
-              style: footnoteRegular,
+              'Старт',
+              style: secondaryTextRegular13,
             ),
             const SizedBox(height: 4),
             Text(
-              order.contractor.name,
-              style: primaryText18,
+              order.startDate,
+              style: primaryTextSemiBold15,
             )
           ],
         ),
@@ -259,13 +256,13 @@ class OrderDetailedBottomSheet extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Старт',
-              style: footnoteRegular,
+              'Исполнитель',
+              style: secondaryTextRegular13,
             ),
             const SizedBox(height: 4),
             Text(
-              order.startDate,
-              style: primaryText18,
+              order.contractor.name,
+              style: primaryTextSemiBold15,
             )
           ],
         ),
@@ -301,11 +298,7 @@ class OrderDetailedBottomSheet extends StatelessWidget {
       children: [
         Text(
           numberWithSpaces(price),
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
+          style: primaryTextSemiBold22,
         ),
         const SizedBox(width: 8),
         SvgPicture.asset(

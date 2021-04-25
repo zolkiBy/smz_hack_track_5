@@ -29,14 +29,14 @@ class PaySuccessBottomSheet extends StatelessWidget {
                 Center(
                   child: Text(
                     'Успешно',
-                    style: primaryText16,
+                    style: primaryTextSemiBold16,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Center(
                   child: Text(
                     'Исполнитель получит оплату в течение следующего рабочего дня',
-                    style: primaryText13,
+                    style: primaryTextRegular13,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -44,9 +44,7 @@ class PaySuccessBottomSheet extends StatelessWidget {
                 ActionButton(
                   text: 'Закрыть',
                   color: NXColors.systemGrey6,
-                  textStyle: primaryText16.copyWith(
-                    color: Colors.white,
-                  ),
+                  textStyle: primaryTextSemiBold16,
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],

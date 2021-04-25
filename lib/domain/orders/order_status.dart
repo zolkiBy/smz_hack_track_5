@@ -15,7 +15,7 @@ extension OrderStatusExt on OrderStatus {
 
   static const _names = {
     OrderStatus.inProgress: 'В работе',
-    OrderStatus.pending: 'Ждут отклика',
+    OrderStatus.pending: 'Ждёт отклика',
     OrderStatus.finished: 'Выполнен',
     OrderStatus.payed: 'Оплачен',
   };

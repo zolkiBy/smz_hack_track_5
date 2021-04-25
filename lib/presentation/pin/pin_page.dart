@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_app/presentation/components/widgets/background.dart';
 import 'package:flutter_app/presentation/components/widgets/bouncing_button.dart';
 import 'package:flutter_app/presentation/components/widgets/buttons.dart';
@@ -38,13 +37,12 @@ class _PinPageState extends State<PinPage> {
               child: Column(children: [
                 Text(
                   'Создайте PIN код',
-                  style: primaryText28,
+                  style: primaryTextBold28,
                 ),
                 const SizedBox(height: 37),
                 Pin(
                   onChanged: (pin) {
-                    if (_scrollController.offset !=
-                        _scrollController.position.maxScrollExtent) {
+                    if (_scrollController.offset != _scrollController.position.maxScrollExtent) {
                       _scrollController.animateTo(
                         _scrollController.position.maxScrollExtent,
                         duration: Duration(milliseconds: 100),
@@ -81,7 +79,7 @@ class _PinPageState extends State<PinPage> {
                         flex: 3,
                         child: Text(
                           'Разрешить вход с помощью биометрии',
-                          style: secondaryText16,
+                          style: secondaryTextSemiBold15,
                         ),
                       ),
                       Expanded(
@@ -105,10 +103,7 @@ class _PinPageState extends State<PinPage> {
                     child: GradientedActionButton(
                         disabled: _pin.length != 4,
                         text: 'Продолжить',
-                        onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                fullscreenDialog: true,
-                                builder: (context) => TabBarPage()))),
+                        onPressed: () => Navigator.of(context).push(MaterialPageRoute(fullscreenDialog: true, builder: (context) => TabBarPage()))),
                   ),
                 ),
               ]),

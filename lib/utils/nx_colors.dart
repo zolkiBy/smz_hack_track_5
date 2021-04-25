@@ -29,7 +29,7 @@ class NXColors {
   static const darkGrey2 = Color(0x5C787880);
   static const fillDarkPrimary = Color(0xFF787880);
   static const separatorDarkGrey = Color(0xFF545458);
-  static const quartenaryLightGrey = Color(0xFF787880);
+  static const quartenaryLightGrey = Color(0x2EEBEBF5);
 
   static const chartBlue = Color(0xFF1565C2);
 

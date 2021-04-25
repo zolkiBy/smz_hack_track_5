@@ -31,21 +31,21 @@ class PayConfirmationBottomSheet extends StatelessWidget {
                 Center(
                   child: Text(
                     'Внимание',
-                    style: primaryText16,
+                    style: primaryTextSemiBold16,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Center(
                   child: Text(
                     'Вы уверены, что хотите совершить оплату?',
-                    style: primaryText13,
+                    style: primaryTextRegular13,
                   ),
                 ),
                 const SizedBox(height: 32),
                 ActionButton(
                   text: 'Да, оплатить',
                   color: NXColors.systemGrey6,
-                  textStyle: primaryText16.copyWith(
+                  textStyle: primaryTextSemiBold17.copyWith(
                     color: NXColors.orange,
                   ),
                   onPressed: () {
@@ -54,18 +54,14 @@ class PayConfirmationBottomSheet extends StatelessWidget {
                         context: context,
                         backgroundColor: Colors.black.withOpacity(0.03),
                         expand: true,
-                        builder: (context) =>
-                            PaySuccessBottomSheet()).then(
-                        (value) => Navigator.of(context).pop(true)); // is paid
+                        builder: (context) => PaySuccessBottomSheet()).then((value) => Navigator.of(context).pop(true)); // is paid
                   },
                 ),
                 const SizedBox(height: 16),
                 ActionButton(
                   text: 'Отмена',
                   color: NXColors.systemGrey6,
-                  textStyle: primaryText16.copyWith(
-                    color: NXColors.textSecondary,
-                  ),
+                  textStyle: secondaryTextSemiBold17,
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
